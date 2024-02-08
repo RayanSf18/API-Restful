@@ -17,10 +17,12 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    // CREATE
     public User create(User newUser) {
         return userRepository.insert(newUser);
     }
 
+    // READs
     public List<User> readAll() {
         return userRepository.findAll(Sort.by("name").ascending());
     }
@@ -30,6 +32,19 @@ public class UserService {
         return optional.orElseThrow(() -> new ObjectNotFoundException("Object id=" + id + " not found"));
     }
 
+    // UPDATE
+    public User update(User updatedUserData) {
+        Optional<User> existingUser = userRepository.findById(updatedUserData.getId());
+        updateData(existingUser.get(), updatedUserData);
+        return userRepository.save(existingUser.get());
+    }
+
+    private void updateData(User userExisted, User dataUpdated) {
+        userExisted.setName(dataUpdated.getName());
+        userExisted.setEmail(dataUpdated.getEmail());
+    }
+
+    // DELETE
     public void deleteById(String id) {
         readById(id);
         userRepository.deleteById(id);

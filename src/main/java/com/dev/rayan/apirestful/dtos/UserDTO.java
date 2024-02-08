@@ -1,7 +1,6 @@
 package com.dev.rayan.apirestful.dtos;
 
 import com.dev.rayan.apirestful.domain.User;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
