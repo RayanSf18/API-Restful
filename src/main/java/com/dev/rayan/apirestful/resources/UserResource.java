@@ -20,7 +20,7 @@ public class UserResource {
     @Autowired
     private UserService userService;
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<Void> create(@RequestBody UserDTO userDTO) {
         User user = userService.fromDTO(userDTO);
         user = userService.create(user);
@@ -39,5 +39,11 @@ public class UserResource {
     public ResponseEntity<UserDTO> readById(@PathVariable String id) {
         UserDTO userDTO = new UserDTO(userService.readById(id));
         return ResponseEntity.ok().body(userDTO);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable String id) {
+        userService.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }

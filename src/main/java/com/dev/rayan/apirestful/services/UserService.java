@@ -30,6 +30,11 @@ public class UserService {
         return optional.orElseThrow(() -> new ObjectNotFoundException("Object id=" + id + " not found"));
     }
 
+    public void deleteById(String id) {
+        readById(id);
+        userRepository.deleteById(id);
+    }
+
     public User fromDTO(UserDTO userDTO) {
         return new User(userDTO.getId(), userDTO.getName(), userDTO.getEmail(), userDTO.getPassword());
     }
