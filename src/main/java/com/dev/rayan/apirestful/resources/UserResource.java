@@ -1,6 +1,8 @@
 package com.dev.rayan.apirestful.resources;
 
 import com.dev.rayan.apirestful.domain.User;
+import com.dev.rayan.apirestful.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,11 +15,11 @@ import java.util.List;
 @RequestMapping(value="/users")
 public class UserResource {
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping
     public ResponseEntity<List<User>> readAll() {
-        User u1 = new User("1", "Maria Brown", "maria@gmail.com");
-        User u2 = new User("2", "Pedro Brown", "pedro@gmail.com");
-        User u3 = new User("3", "Ricardo Brown", "ricardo@gmail.com");
-        return ResponseEntity.ok().body(Arrays.asList(u1, u2, u3));
+        return ResponseEntity.ok().body(userService.readAll());
     }
 }
