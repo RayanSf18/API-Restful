@@ -19,16 +19,16 @@ public class Instantiation implements CommandLineRunner {
 
         userRepository.deleteAll();
 
-        User u1 = new User(null, "Ana Amarelo", "anaamarelo@gmail.com");
-        User u2 = new User(null, "João Azul", "joaoazul@gmail.com");
-        User u3 = new User(null, "Maria Branco", "mariabranco@gmail.com");
-        User u4 = new User(null, "Pedro Cinza", "pedrocinza@gmail.com");
-        User u5 = new User(null, "Ana Laranja", "analaranja@gmail.com");
-        User u6 = new User(null, "João Verde", "joaoverde@gmail.com");
-        User u7 = new User(null, "Maria Rosa", "mariarosa@gmail.com");
-        User u8 = new User(null, "Pedro Roxo", "pedroroxo@gmail.com");
-        User u9 = new User(null, "Ana Violeta", "anavioleta@gmail.com");
-        User u10 = new User(null, "João Vermelho", "joaovermelho@gmail.com");
+        User u1 = new User(null, "Ana Amarelo", "anaamarelo@gmail.com", "AnaM123");
+        User u2 = new User(null, "João Azul", "joaoazul@gmail.com", "JoaoA123");
+        User u3 = new User(null, "Maria Branco", "mariabranco@gmail.com", "MariaB123");
+        User u4 = new User(null, "Pedro Cinza", "pedrocinza@gmail.com", "PedroC123");
+        User u5 = new User(null, "Clara Dourado", "claradourado@gmail.com", "ClaraD123");
+        User u6 = new User(null, "Fernando Verde", "fernandoverde@gmail.com", "FernandoV123");
+        User u7 = new User(null, "Gabriela Laranja", "gabrielalaranja@gmail.com", "GabrielaL123");
+        User u8 = new User(null, "Hugo Preto", "hugopreto@gmail.com", "HugoP123");
+        User u9 = new User(null, "Isabela Rosa", "isabelarosa@gmail.com", "IsabelaR123");
+        User u10 = new User(null, "Rafael Roxo", "rafaelroxo@gmail.com", "RafaelR123");
 
         userRepository.saveAll(Arrays.asList(u1, u2, u3, u4, u5, u6, u7, u8, u9, u10));
 

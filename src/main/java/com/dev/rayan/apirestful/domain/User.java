@@ -24,4 +24,6 @@ public class User implements Serializable {
     @EqualsAndHashCode.Include
     private String email;
 
+    private String password;
+
 }

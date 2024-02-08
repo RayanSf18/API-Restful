@@ -1,6 +1,7 @@
 package com.dev.rayan.apirestful.services;
 
 import com.dev.rayan.apirestful.domain.User;
+import com.dev.rayan.apirestful.dtos.UserDTO;
 import com.dev.rayan.apirestful.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
