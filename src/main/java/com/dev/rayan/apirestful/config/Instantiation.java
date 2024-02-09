@@ -2,6 +2,7 @@ package com.dev.rayan.apirestful.config;
 
 import com.dev.rayan.apirestful.domain.Post;
 import com.dev.rayan.apirestful.domain.User;
+import com.dev.rayan.apirestful.dtos.AuthorDTO;
 import com.dev.rayan.apirestful.repositories.PostRepository;
 import com.dev.rayan.apirestful.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,8 @@ public class Instantiation implements CommandLineRunner {
 
         userRepository.saveAll(Arrays.asList(u1,u2,u3));
 
-        Post p1 = new Post(null, dateFormat.parse("21/03/2018 - 21:34"), "Partiu Viagem!", "Vou viajar para São Paulo. Abraços!", u1);
-        Post p2 = new Post(null, dateFormat.parse("23/03/2018 - 07:30"), "Bom dia!", "Acordei feliz hoje!", u1);
+        Post p1 = new Post(null, dateFormat.parse("21/03/2018 - 21:34"), "Partiu Viagem!", "Vou viajar para São Paulo. Abraços!", new AuthorDTO(u1));
+        Post p2 = new Post(null, dateFormat.parse("23/03/2018 - 07:30"), "Bom dia!", "Acordei feliz hoje!", new AuthorDTO(u1));
 
         postRepository.saveAll(Arrays.asList(p1,p2));
     }
