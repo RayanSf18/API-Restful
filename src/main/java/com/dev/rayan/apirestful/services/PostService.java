@@ -13,12 +13,15 @@ import java.util.Optional;
 public class PostService {
 
     @Autowired
-    private PostRepository PostRepository;
+    private PostRepository postRepository;
 
     public Post readById(String id) {
-        Optional<Post> optional = PostRepository.findById(id);
+        Optional<Post> optional = postRepository.findById(id);
         return optional.orElseThrow(() -> new ObjectNotFoundException("Object id=" + id + " not found"));
     }
 
+    public List<Post> findByTitle(String text) {
+        return postRepository.findByTitleContainingIgnoreCase(text);
+    }
 
 }
