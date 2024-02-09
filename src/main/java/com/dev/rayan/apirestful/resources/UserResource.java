@@ -1,5 +1,6 @@
 package com.dev.rayan.apirestful.resources;
 
+import com.dev.rayan.apirestful.domain.Post;
 import com.dev.rayan.apirestful.domain.User;
 import com.dev.rayan.apirestful.dtos.UserDTO;
 import com.dev.rayan.apirestful.services.UserService;
@@ -39,6 +40,13 @@ public class UserResource {
     public ResponseEntity<UserDTO> readById(@PathVariable String id) {
         UserDTO userDTO = new UserDTO(userService.readById(id));
         return ResponseEntity.ok().body(userDTO);
+    }
+
+
+    @GetMapping(value = "{id}/posts")
+    public ResponseEntity<List<Post>> readAllPosts(@PathVariable String id) {
+        User userFind = userService.readById(id);
+        return ResponseEntity.ok().body(userFind.getPosts());
     }
 
     @PutMapping(value = "/{id}")
